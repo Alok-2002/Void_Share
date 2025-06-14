@@ -1,60 +1,51 @@
-# 🌐 Void Share – Upload. Expire. Forget.
+<p align="center">
+  <img src="./assets/banner.png" alt="Void Share Banner"/>
+</p>
+
+# <p align="left"> <img src="./assets/LOGO.png" alt="Void Share Logo" width="150"/> </p> Void Share – Upload. Expire. Forget.
 
 ![AWS](https://img.shields.io/badge/Platform-AWS-orange?style=for-the-badge\&logo=amazonaws)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-In%20Development-blue?style=for-the-badge)
-![Languages](https://img.shields.io/badge/Built%20With-JavaScript%20%26%20Python-yellow?style=for-the-badge)
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=Void_Share-Repo)
+![Language](https://img.shields.io/badge/Built%20With-JavaScript%20%26%20Python-yellow?style=for-the-badge\&logo=javascript)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=VoidShare-Repo)
 ![PRs](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/alok-2002/Void_Share?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/Alok-2002/Void_Share?style=for-the-badge)
 
 ---
-
-![Void Share Banner](./assets/void_share-banner.png)
 
 ## 📌 Project Overview
 
-**Void Share** is a secure, serverless, cloud-native file sharing platform that allows users to upload files of any type, select an expiry duration (from 1 hour up to 5 years), and automatically deletes the files post-expiry. This eliminates clutter, enhances privacy, and removes the need for manual file cleanup. The platform is designed for speed, simplicity, and scalability.
-
-Built entirely on **AWS**, Void Share offers:
-
-* 🔐 Isolated per-user storage using Amazon S3
-* ⏳ Auto-expiring file system using DynamoDB TTL
-* 🧠 Stateless logic with AWS Lambda and EventBridge
-* 🌍 Global content delivery via CloudFront
-* 🔄 Fully automated CI/CD pipeline support
+**Void Share** is a secure, cloud-native file sharing platform that allows users to upload any type of file, choose how long it stays available (1 hour to 5 years), and automatically deletes it after expiry. Built entirely using **AWS services**, it ensures privacy, scalability, and low maintenance with **zero backend server management**.
 
 ---
 
-## 🚀 Key Features
+## 🚀 Features
 
-| 🔑 Feature                 | 💡 Description                                            |
-| -------------------------- | --------------------------------------------------------- |
-| **Authentication**         | Sign up/sign in using Amazon Cognito (OAuth2/JWT-secured) |
-| **File Uploading**         | Upload any file type via web UI or REST API               |
-| **Custom Expiry**          | Set auto-deletion from 1 hour to 5 years                  |
-| **Per-user Folders**       | Files stored under unique user S3 prefixes                |
-| **Public/Private Sharing** | Choose visibility for each uploaded file                  |
-| **Automatic Cleanup**      | Expired files deleted using Lambda + EventBridge          |
-| **Notification Support**   | Email alerts before file expiration (optional via SES)    |
-| **Frontend UI**            | React.js + Tailwind CSS responsive design                 |
-| **100% Cloud-Hosted**      | Hosted on S3 + CloudFront with API via Gateway            |
+* 👤 User authentication using AWS Cognito
+* 🔐 Per-user isolated file storage on S3
+* ⏱️ Custom file expiry from 1 hour to 5 years
+* 🗑️ Auto-deletion of expired files using EventBridge & Lambda
+* 📄 Public and private file sharing
+* 📧 (Optional) Email notifications before expiry
+* 📱 Responsive modern UI built with React
+* 🌩️ Fully deployed and hosted on AWS
 
 ---
 
-## ⚙️ Tech Stack Breakdown
+## ⚙️ Tech Stack
 
-| Layer             | Technology                    |
-| ----------------- | ----------------------------- |
-| **Frontend**      | React.js, Tailwind CSS        |
-| **Hosting**       | Amazon S3, CloudFront         |
-| **Auth**          | Amazon Cognito                |
-| **API Layer**     | AWS Lambda, API Gateway       |
-| **Storage**       | Amazon S3                     |
-| **Database**      | Amazon DynamoDB (TTL enabled) |
-| **Automation**    | AWS EventBridge, Lambda       |
-| **Email Service** | Amazon SES (optional)         |
-| **IaC & CLI**     | Terraform / AWS CLI           |
+| Layer            | Technology                |
+| ---------------- | ------------------------- |
+| Frontend         | React.js, Tailwind CSS    |
+| Hosting          | Amazon S3 + CloudFront    |
+| Authentication   | Amazon Cognito            |
+| Backend APIs     | AWS Lambda + API Gateway  |
+| File Storage     | Amazon S3                 |
+| Metadata DB      | Amazon DynamoDB           |
+| Expiry & Cleanup | AWS EventBridge + Lambda  |
+| Email Service    | Amazon SES (optional)     |
+| Infrastructure   | AWS CLI / Terraform / CDK |
 
 ---
 
@@ -62,115 +53,108 @@ Built entirely on **AWS**, Void Share offers:
 
 ![Architecture Diagram](./assets/architecture.png)
 
-> The diagram illustrates how each AWS service interacts to maintain a fully serverless lifecycle — from upload to automatic expiry.
+---
+
+## 💸 Cost Estimation
+
+| Service            | Approx. Monthly Cost       |
+| ------------------ | -------------------------- |
+| S3 (Storage <20GB) | \$1–\$5                    |
+| Lambda             | <\$1                       |
+| API Gateway        | <\$1                       |
+| Cognito            | Free (<50k users)          |
+| DynamoDB           | <\$1                       |
+| CloudFront + S3    | Free / <\$1                |
+| SES (Optional)     | Free (up to 62,000 emails) |
+
+> 💰 Total: **\~\$5/month average** (Free under light use). You can scale further with your **\$180 AWS credits**.
 
 ---
 
-## 💸 Estimated Monthly Cost
+## 🔒 File Security & Access Control
 
-| Service               | Usage Estimate       | Monthly Cost |
-| --------------------- | -------------------- | ------------ |
-| Amazon S3             | < 20GB stored        | \$1–\$5      |
-| AWS Lambda            | < 1 million requests | <\$1         |
-| API Gateway           | Light use            | <\$1         |
-| Amazon Cognito        | < 50K MAUs           | Free         |
-| DynamoDB              | Few hundred items    | <\$1         |
-| CloudFront            | Basic CDN traffic    | Free–\$1     |
-| Amazon SES (optional) | < 62K emails/month   | Free         |
-
-💡 **Tip**: The project is well under AWS Free Tier. With your **\$180 in AWS credits**, you can run it free for months.
+* Files are uploaded under `uploads/{user_id}/filename.ext`
+* IAM policies ensure only the file owner can read/delete their files
+* All requests are token-secured using JWTs from Cognito
+* Public files can be shared via a link; private files require login
 
 ---
 
-## 🔒 Security & Access Control
-
-* 🔐 **Scoped IAM Roles** for file-level isolation
-* 🔑 **JWT Tokens** issued via Cognito for every request
-* 🛡️ **Private or Public** access option for each file
-* 📁 Files stored at: `s3://bucket/uploads/{userId}/filename`
-* ❌ Expired files auto-deleted with fail-safe retries
-
----
-
-## 🗂 Folder Structure
+## 📁 Folder Structure
 
 ```
 voidshare/
 ├── backend/
-│   ├── lambda-upload.js        # Handles file upload metadata
-│   ├── lambda-cleanup.js       # Deletes expired files
-│   ├── lambda-delete.js        # Manual delete API
-│   └── terraform/              # Infrastructure as Code (IaC)
+│   ├── lambda-upload.js
+│   ├── lambda-delete.js
+│   ├── lambda-cleanup.js
+│   └── terraform/
 ├── frontend/
 │   ├── public/
 │   └── src/
-│       ├── components/         # Reusable UI elements
-│       └── pages/              # Routes like /upload, /login, /dashboard
+│       ├── components/
+│       └── pages/
 ├── assets/
-│   └── architecture.png        # AWS architecture diagram
-└── README.md
+│   └── architecture.png
+├── README.md
 ```
 
 ---
 
-## 🔁 Upload to Expiry Flow
+## 📄 Upload & Expiry Flow
 
-```mermaid
-graph TD
-A[User Logs In] --> B[Uploads File]
-B --> C[Select Expiry Time]
-C --> D[S3 Upload + DynamoDB TTL Set]
-D --> E[Auto Cleanup via EventBridge + Lambda]
-```
+1. User logs in via Cognito
+2. Selects file and expiry time (1 hour to 5 years)
+3. File is uploaded to S3 and metadata stored in DynamoDB
+4. Expiry timestamp is stored in DynamoDB TTL
+5. Lambda checks and deletes expired files daily via EventBridge
 
 ---
 
-## 🌟 Planned Enhancements
+## 🧠 Future Upgrades
 
-* 🔒 Password-protected file URLs
-* 🔄 Extend or renew file expiration
-* 🧲 Drag-and-drop + multi-file uploads
-* 📊 User dashboard with file stats & history
-* 📱 Native mobile app support (React Native or Flutter)
-* 🔗 QR Code Generator for share links
+* [ ] Password-protected file links
+* [ ] Drag-and-drop interface
+* [ ] QR code generator
+* [ ] Analytics dashboard for users
+* [ ] Extend/renew expiry before deletion
 
 ---
 
-## 🌍 Deployment (100% AWS Cloud)
+## 🌍 Deployment (100% on AWS)
 
 ```bash
-# 1. Deploy Frontend
-npm run build
+# Deploy Frontend
 aws s3 sync ./frontend/build s3://your-frontend-bucket/
 aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
 
-# 2. Deploy Backend APIs
-cd backend/terraform
-terraform init && terraform apply
+# Deploy Backend (Lambda + API Gateway)
+terraform init
+terraform apply
 ```
 
 ---
 
-## 👨‍💻 Developer Team
+## 👨‍💻 Developer Info
 
-| Name        | Role                 |
-| ---------   | -------------------- |
-| Alok Sharma | Full Stack Cloud Dev |
-
----
-
-## 🔗 Useful Links
-
-* 🧾 [AWS Free Tier](https://aws.amazon.com/free/)
-* 💰 [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)
-* 🗂️ [DynamoDB TTL Guide](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html)
-* 🌐 [Deploying with CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html)
+| Name      | Role                |
+| --------- | ------------------- |
+| Your Name | Cloud App Developer |
 
 ---
 
-## 📸 Screenshots (To be updated)
+## 📌 Useful Links
 
-| Upload UI                     | File List                   | Expiry Picker                     |
+* 🔗 [AWS Free Tier Info](https://aws.amazon.com/free/)
+* 🔗 [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)
+* 🔗 [DynamoDB TTL Docs](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html)
+* 🔗 [CloudFront Setup](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.html)
+
+---
+
+## 📸 Screenshots (Placeholders)
+
+| Upload Page                   | File List                   | Expiry Selector                   |
 | ----------------------------- | --------------------------- | --------------------------------- |
 | ![](./assets/upload-page.png) | ![](./assets/file-list.png) | ![](./assets/expiry-selector.png) |
 
@@ -182,14 +166,12 @@ This project is licensed under the [MIT License](./LICENSE).
 
 ---
 
-## 🤝 Contributing
+## 🙌 Contributing
 
-Pull Requests are always welcome! Feel free to open issues for bugs, suggestions, or features. Fork it, star it, and let’s build Void Share together!
+PRs are welcome! Open issues, fork the repo, and create a pull request. Let’s build this awesome tool together.
 
 ---
 
-## ⭐ Support & Recognition
+## ⭐ Show Your Support
 
-Give this repo a ⭐ if you found it useful or inspiring. Let's make cloud-native file sharing simple, secure, and ephemeral.
-
-> “Upload. Expire. Forget.”
+Give a ⭐ if this project helped you or inspired you!
