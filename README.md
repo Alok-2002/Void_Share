@@ -151,9 +151,9 @@ terraform init && terraform apply
 
 ## 👨‍💻 Developer Team
 
-| Name      | Role                 |
-| --------- | -------------------- |
-| Your Name | Full Stack Cloud Dev |
+| Name        | Role                 |
+| ---------   | -------------------- |
+| Alok Sharma | Full Stack Cloud Dev |
 
 ---
 
