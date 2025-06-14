@@ -2,7 +2,7 @@
   <img src="./assets/banner.png" alt="Void Share Banner"/>
 </p>
 
-# <p align="left"> <img src="./assets/LOGO.png" alt="Void Share Logo" width="150"/> </p> Void Share – Upload. Expire. Forget.
+<img src="./assets/LOGO.png" alt="Void Share Logo" width="35" style="vertical-align:middle; margin-right: 10px;"/> 🌐 **Void Share – Upload. Expire. Forget.**
 
 ![AWS](https://img.shields.io/badge/Platform-AWS-orange?style=for-the-badge\&logo=amazonaws)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
