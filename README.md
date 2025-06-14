@@ -10,6 +10,8 @@
 
 ---
 
+![Void Share Banner](./assets/void_share-banner.png)
+
 ## 📌 Project Overview
 
 **Void Share** is a secure, serverless, cloud-native file sharing platform that allows users to upload files of any type, select an expiry duration (from 1 hour up to 5 years), and automatically deletes the files post-expiry. This eliminates clutter, enhances privacy, and removes the need for manual file cleanup. The platform is designed for speed, simplicity, and scalability.
